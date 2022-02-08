@@ -1,0 +1,5 @@
+@import "~bootstrap/dist/css/bootstrap";
+
+.bg-primary {
+    background-color: #6667AB !important;
+}

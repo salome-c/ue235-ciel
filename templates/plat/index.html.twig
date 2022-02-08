@@ -1,18 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Plat index{% endblock %}
+{% block title %}Plats{% endblock %}
 
 {% block body %}
-    <h1>Plat index</h1>
+    <h1 class="text-center">Plats</h1>
 
-    <table class="table">
+    <div class="container">
+
+    <table class="table table-primary table-striped align-middle">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Categorie</th>
-                <th>Description</th>
-                <th>actions</th>
+                <th>ID</th>
+                <th class="col-md-1">Nom</th>
+                <th class="col-md-1">Catégorie</th>
+                <th >Description</th>
+                <th class="col-md-1">actions</th>
             </tr>
         </thead>
         <tbody>
@@ -27,17 +29,21 @@
                 </td>
                 <td>{{ plat.description }}</td>
                 <td>
-                    <a href="{{ path('plat_show', {'id': plat.id}) }}">show</a>
-                    <a href="{{ path('plat_edit', {'id': plat.id}) }}">edit</a>
+                    <div class="d-grid gap-2">
+                        <a class="btn btn-outline-primary" role="button" href="{{ path('plat_show', {'id': plat.id}) }}">Voir</a>
+                        <a class="btn btn-outline-primary" role="button" href="{{ path('plat_edit', {'id': plat.id}) }}">Modifier</a>
+                    </div>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">Aucun plat trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('plat_new') }}">Create new</a>
+    <div class="d-grid gap-2">
+        <a class="btn btn-primary" role="button" href="{{ path('plat_new') }}">Ajouter un article</a>
+    </div>
 {% endblock %}
